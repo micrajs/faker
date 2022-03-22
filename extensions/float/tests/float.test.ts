@@ -6,7 +6,6 @@ describe('float extension tests', () => {
   it('should generate float', () => {
     const fake = Faker();
     fake.extend('float', float);
-    console.log(fake.float());
 
     expect(typeof fake.float()).toBe('number');
     expect(fake.float(10)).toBeLessThanOrEqual(10);
