@@ -1,5 +1,5 @@
-import {uuid} from '../uuid';
-import {Faker} from '../..';
+import {uuid} from '..';
+import {Faker} from '../../..';
 
 describe('uuid extension tests', () => {
   it('should generate uuids', () => {

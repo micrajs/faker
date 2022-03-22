@@ -6,7 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: cwd('index.ts'),
-        full: cwd('full.ts'),
+        complete: cwd('complete.ts'),
       },
     },
   },

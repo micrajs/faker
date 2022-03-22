@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
-import {boolean} from '../boolean';
-import {Faker} from '../..';
+import {boolean} from '../../boolean';
+import {Faker} from '../../..';
 
 describe('boolean extension tests', () => {
   it('should generate booleans', () => {

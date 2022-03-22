@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
-import {float} from '../float';
-import {Faker} from '../..';
+import {float} from '..';
+import {Faker} from '../../..';
 
 describe('float extension tests', () => {
   it('should generate float', () => {

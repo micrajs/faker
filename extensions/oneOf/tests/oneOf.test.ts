@@ -1,5 +1,5 @@
-import {oneOf} from '../oneOf';
-import {Faker} from '../..';
+import {oneOf} from '..';
+import {Faker} from '../../..';
 
 describe('oneOf extension tests', () => {
   it('should generate oneOf the options', () => {

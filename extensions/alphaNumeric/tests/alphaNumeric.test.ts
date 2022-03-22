@@ -1,5 +1,5 @@
-import {alphaNumeric} from '../alphaNumeric';
-import {Faker} from '../..';
+import {alphaNumeric} from '..';
+import {Faker} from '../../..';
 
 describe('alphaNumeric extension tests', () => {
   it('should generate alphaNumerics', () => {

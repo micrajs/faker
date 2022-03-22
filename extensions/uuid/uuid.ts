@@ -1,11 +1,3 @@
-declare global {
-  namespace Faker {
-    interface Extensions {
-      uuid: () => string;
-    }
-  }
-}
-
 export function uuid(fake: Faker.Instance) {
   return (): string => {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(

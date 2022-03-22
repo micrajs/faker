@@ -1,6 +1,6 @@
 import {describe, it, expect} from 'vitest';
-import {string} from '../string';
-import {Faker} from '../..';
+import {string} from '..';
+import {Faker} from '../../..';
 
 describe('string extension tests', () => {
   it('should generate strings', () => {

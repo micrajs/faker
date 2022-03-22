@@ -1,11 +1,3 @@
-declare global {
-  namespace Faker {
-    interface Extensions {
-      string: (length?: number) => string;
-    }
-  }
-}
-
 export function string(fake: Faker.Instance) {
   return (length = 10): string => {
     const maxLength = Math.pow(2, 20);

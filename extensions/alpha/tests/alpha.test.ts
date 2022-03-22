@@ -1,5 +1,5 @@
 import {alpha} from '../alpha';
-import {Faker} from '../..';
+import {Faker} from '../../..';
 
 describe('alpha extension tests', () => {
   it('should generate alphas', () => {
