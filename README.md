@@ -18,7 +18,9 @@
 
 ## About
 
-Generate realistic fake data for your tests
+Generate realistic fake data for your tests.
+
+This project is heavily based on the [faker.js](https://github.com/faker-js/faker) and the [original faker project](https://www.npmjs.com/package/faker) but with a modular and extensible twist. On top of that, this project introduces the concept of factories that were developed in [node-factory](https://github.com/olavoasantos/node-factory).
 
 ## Contributors
 

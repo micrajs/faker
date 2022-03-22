@@ -1,5 +1,13 @@
-import { defineConfig } from '@micra/vite-config/library';
+import {cwd} from '@micra/vite-config/utilities/cwd';
+import {defineConfig} from '@micra/vite-config/library';
 
 export default defineConfig({
-  plugins: [],
+  build: {
+    rollupOptions: {
+      input: {
+        index: cwd('index.ts'),
+        full: cwd('full.ts'),
+      },
+    },
+  },
 });
