@@ -1,3 +1,9 @@
+import {randomDigit} from '@/data/utilities/randomDigit';
+import {randomLowerCase} from '@/data/utilities/randomLowerCase';
+import {randomUpperCase} from '@/data/utilities/randomUpperCase';
+
+const chars = [randomUpperCase, randomLowerCase, randomDigit];
+
 export function alphaNumeric(fake: Faker.Instance) {
   return (length = 10): string => {
     const maxLength = Math.pow(2, 20);
@@ -5,17 +11,11 @@ export function alphaNumeric(fake: Faker.Instance) {
       length = maxLength;
     }
 
-    const chars = [
-      () => String.fromCharCode(fake.number(48, 57)),
-      () => String.fromCharCode(fake.number(65, 90)),
-      () => String.fromCharCode(fake.number(97, 122)),
-    ];
-
-    let returnString = '';
+    const returnString: (string | number)[] = [];
     for (let i = 0; i < length; i++) {
-      returnString += chars[fake.number(chars.length - 1)]();
+      returnString.push(chars[fake.number(chars.length - 1)](fake));
     }
 
-    return returnString;
+    return returnString.join('');
   };
 }

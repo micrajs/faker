@@ -1,5 +1,7 @@
+import {randomBoolean} from '@/data/utilities/randomBoolean';
+
 export function boolean(fake: Faker.Instance) {
   return (): boolean => {
-    return !!fake.number(1);
+    return randomBoolean(fake);
   };
 }
