@@ -7,3 +7,4 @@
 /// <reference types="./extensions/oneOf/oneOf.register" />
 /// <reference types="./extensions/string/string.register" />
 /// <reference types="./extensions/uuid/uuid.register" />
+/// <reference types="./extensions/hexaDecimal/hexaDecimal.register" />
