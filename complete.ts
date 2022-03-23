@@ -5,6 +5,7 @@ import '@/extensions/boolean/register';
 import '@/extensions/float/register';
 import '@/extensions/hexaDecimal/register';
 import '@/extensions/oneOf/register';
+import '@/extensions/pattern/register';
 import '@/extensions/string/register';
 import '@/extensions/uuid/register';
 
