@@ -1,27 +1,30 @@
 /// <reference types="../../faker.register" />
 import {Mersenne} from '../utilities/mersenne';
 
+interface Internal {
+  seedValue: number | null;
+  mersenne: {
+    rand(max: number, min: number): number;
+    seed(seed: number): void;
+    unseed(): void;
+  };
+}
+
 const INTERNAL = Symbol.for('FAKER.INTERNAL');
 
 export class FakerCore implements Faker.Core {
-  [INTERNAL]: Faker.Internal = {
-    locale: 'en',
+  [INTERNAL]: Internal = {
     seedValue: null,
     mersenne: Mersenne(),
   };
 
-  setLocale<K extends 'en'>(locale: K): this {
-    this[INTERNAL].locale = locale;
-    return this;
-  }
-
   extend<K extends keyof Faker.Extensions>(
     key: K,
-    extension: Faker.StaticExtension<K>,
+    extensionFactory: Faker.ExtensionFactory<K>,
   ): this {
     const self = this as unknown as Faker.Extensions;
     if (!self[key]) {
-      self[key] = extension(self as Faker.Instance);
+      self[key] = extensionFactory(self as Faker.Instance);
     }
 
     return this;

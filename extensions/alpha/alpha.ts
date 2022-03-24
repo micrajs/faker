@@ -1,6 +1,7 @@
 import {randomDigit} from '@/data/utilities/randomDigit';
 import {randomLowerCase} from '@/data/utilities/randomLowerCase';
 import {randomUpperCase} from '@/data/utilities/randomUpperCase';
+import {randomValueFromArray} from '@/data/utilities/randomValueFromArray';
 
 const chars = [randomUpperCase, randomLowerCase, randomDigit];
 
@@ -13,7 +14,7 @@ export function alpha(fake: Faker.Instance) {
 
     const returnString: (string | number)[] = [];
     for (let i = 0; i < length; i++) {
-      returnString.push(chars[fake.number(chars.length - 1)](fake));
+      returnString.push(randomValueFromArray(fake, chars)(fake));
     }
 
     return returnString.join('');

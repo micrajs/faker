@@ -1,12 +1,9 @@
+import {randomValueFromArray} from '@/data/utilities/randomValueFromArray';
+
 export function oneOf(fake: Faker.Instance) {
-  return <T>(...args: (T | ((fake: Faker.Instance) => T))[]): T => {
-    const index = fake.number(args.length - 1);
-    const arg = args[index];
+  return <T>(...args: (T | Faker.Generator<T>)[]): T => {
+    const arg = randomValueFromArray(fake, args);
 
-    if (typeof arg === 'function') {
-      return (arg as Faker.Generator<T>)(fake);
-    }
-
-    return arg;
+    return typeof arg !== 'function' ? arg : (arg as Faker.Generator<T>)(fake);
   };
 }
