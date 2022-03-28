@@ -59,6 +59,7 @@ declare global {
        */
 
       seed(value: number): this;
+
       /**
        * It unsets the seed used to generate random numbers.
        */
