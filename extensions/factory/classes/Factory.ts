@@ -25,7 +25,7 @@ export class Factory<T, V extends string | undefined = undefined>
         Object.defineProperty(this, key, {
           get: () => {
             if (!this.instances[key]) {
-              this.instances[key] = new Factory<T, any>(this.faker, {
+              this.instances[key] = new Factory<T, string>(this.faker, {
                 factory: () => this.make(variant),
                 onPersist: definition.onPersist,
                 variants: omit(definition.variants, [key]),
