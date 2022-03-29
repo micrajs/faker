@@ -1,5 +1,5 @@
 export const DateDataSource = {
-  getMonths: () => [
+  months: () => [
     'January',
     'February',
     'March',
@@ -13,7 +13,7 @@ export const DateDataSource = {
     'November',
     'December',
   ],
-  getWeekdays: () => [
+  weekdays: () => [
     'Sunday',
     'Monday',
     'Tuesday',
@@ -22,14 +22,4 @@ export const DateDataSource = {
     'Friday',
     'Saturday',
   ],
-  getMonthsAbbreviation: () =>
-    DateDataSource.getMonths().map((month) => month.substring(0, 3)),
-  getWeekdaysAbbreviation: () =>
-    DateDataSource.getWeekdays().map((weekday) => weekday.substring(0, 3)),
-  getWeekdaysShort: () =>
-    DateDataSource.getWeekdays().map((weekday) => weekday.substring(0, 2)),
-  getWeekdaysMin: () =>
-    DateDataSource.getWeekdays().map((weekday) => weekday.substring(0, 1)),
-  getWeekdaysIndex: () =>
-    DateDataSource.getWeekdays().map((_weekday, index) => index),
 };

@@ -4,6 +4,8 @@ declare global {
       date: (maxOrMin?: number | Date, max?: number | Date) => Date;
       futureDate: () => Date;
       pastDate: () => Date;
+      month: () => string;
+      weekday: () => string;
     }
   }
 }

@@ -1,4 +1,4 @@
-import {date, futureDate, pastDate} from '../date';
+import {date, futureDate, pastDate, weekday, month} from '../date';
 import {Faker} from '../../..';
 
 describe('date extension tests', () => {
@@ -33,5 +33,21 @@ describe('date extension tests', () => {
 
     expect(fake.futureDate()).instanceOf(Date);
     expect(fake.futureDate() > new Date()).toBeTruthy();
+  });
+
+  it('should generate months', () => {
+    const fake = Faker();
+    fake.extend('month', month);
+
+    expect(typeof fake.month()).toBe('string');
+    expect(fake.seed(1).month()).toBe(fake.seed(1).month());
+  });
+
+  it('should generate weekdays', () => {
+    const fake = Faker();
+    fake.extend('weekday', weekday);
+
+    expect(typeof fake.weekday()).toBe('string');
+    expect(fake.seed(1).weekday()).toBe(fake.seed(1).weekday());
   });
 });
