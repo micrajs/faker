@@ -1,5 +1,5 @@
-import {DateDataSource} from '@/data/data-sources/DateDataSource';
-import {randomValueFromArray} from '@/data/utilities/randomValueFromArray';
+import {months} from '@/data/data-sources/months';
+import {weekdays} from '@/data/data-sources/weekdays';
 
 const MIN_MS = 0;
 const MAX_MS = 32503593600000;
@@ -23,36 +23,30 @@ export function date(fake: Faker.Instance) {
       [min, max] = [max, min];
     }
 
-    const time = fake.number(min, max);
-
-    return new Date(time);
+    return new Date(fake.number(min, max));
   };
 }
 
 export function futureDate(fake: Faker.Instance) {
   return (): Date => {
-    const time = fake.number(Date.now(), MAX_MS);
-
-    return new Date(time);
+    return new Date(fake.number(Date.now(), MAX_MS));
   };
 }
 
 export function pastDate(fake: Faker.Instance) {
   return (): Date => {
-    const time = fake.number(MIN_MS, Date.now());
-
-    return new Date(time);
+    return new Date(fake.number(MIN_MS, Date.now()));
   };
 }
 
 export function month(fake: Faker.Instance) {
   return (): string => {
-    return randomValueFromArray(fake, DateDataSource.months());
+    return fake.oneOf(months);
   };
 }
 
 export function weekday(fake: Faker.Instance) {
   return (): string => {
-    return randomValueFromArray(fake, DateDataSource.weekdays());
+    return fake.oneOf(weekdays);
   };
 }

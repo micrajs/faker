@@ -52,6 +52,15 @@ declare global {
        */
       number(maxOrMin?: number, max?: number, precision?: number): number;
 
+      string: (length?: number) => string;
+
+      oneOf<T>(
+        firstOrAll: T | Generator<T> | (T | Generator<T>)[],
+        ...values: (T | Generator<T>)[]
+      ): T;
+
+      boolean(): boolean;
+
       /**
        * It sets the seed used to generate random numbers. Given a seed, it will always return the same sequence of numbers.
        *

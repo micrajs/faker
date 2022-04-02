@@ -1,76 +1,64 @@
-import {NameDataSource} from '@/data/data-sources/NameDataSource';
-import {randomValueFromArray} from '@/data/utilities/randomValueFromArray';
-
-const fullNameStructures = [
-  (fake: Faker.Instance) =>
-    `${randomValueFromArray(
-      fake,
-      NameDataSource.femaleFirstName(),
-    )} ${randomValueFromArray(fake, NameDataSource.lastName())}`,
-  (fake: Faker.Instance) =>
-    `${randomValueFromArray(
-      fake,
-      NameDataSource.maleFirstName(),
-    )} ${randomValueFromArray(fake, NameDataSource.lastName())}`,
-  (fake: Faker.Instance) =>
-    `${randomValueFromArray(
-      fake,
-      NameDataSource.prefix(),
-    )} ${randomValueFromArray(
-      fake,
-      NameDataSource.firstName(),
-    )} ${randomValueFromArray(fake, NameDataSource.lastName())}`,
-  (fake: Faker.Instance) =>
-    `${randomValueFromArray(
-      fake,
-      NameDataSource.firstName(),
-    )} ${randomValueFromArray(
-      fake,
-      NameDataSource.lastName(),
-    )} ${randomValueFromArray(fake, NameDataSource.suffix())}`,
-  (fake: Faker.Instance) =>
-    `${randomValueFromArray(
-      fake,
-      NameDataSource.firstName(),
-    )} ${randomValueFromArray(fake, NameDataSource.lastName())}`,
-  (fake: Faker.Instance) =>
-    `${randomValueFromArray(
-      fake,
-      NameDataSource.firstName(),
-    )} ${randomValueFromArray(fake, NameDataSource.lastName())}`,
-];
+import {femaleFirstNames} from '@/data/data-sources/femaleFirstNames';
+import {maleFirstNames} from '@/data/data-sources/maleFirstNames';
+import {firstNames} from '@/data/data-sources/firstNames';
+import {nameSuffixes} from '@/data/data-sources/nameSuffixes';
+import {namePrefixes} from '@/data/data-sources/namePrefixes';
+import {lastNames} from '@/data/data-sources/lastNames';
 
 export function name(fake: Faker.Instance): Faker.Extensions['name'] {
   return (gender): string => {
     if (gender === 'female') {
-      return fullNameStructures[0](fake);
+      return `${fake.oneOf(femaleFirstNames)} ${fake.oneOf(lastNames)}`;
     }
 
     if (gender === 'male') {
-      return fullNameStructures[1](fake);
+      return `${fake.oneOf(maleFirstNames)} ${fake.oneOf(lastNames)}`;
     }
 
-    return randomValueFromArray(fake, fullNameStructures)(fake);
+    return fake.oneOf(
+      () => [fake.oneOf(femaleFirstNames), fake.oneOf(lastNames)].join(' '),
+      () => [fake.oneOf(maleFirstNames), fake.oneOf(lastNames)].join(' '),
+      () => [fake.oneOf(firstNames), fake.oneOf(lastNames)].join(' '),
+      () =>
+        [
+          fake.oneOf(namePrefixes),
+          fake.oneOf(firstNames),
+          fake.oneOf(lastNames),
+        ].join(' '),
+      () =>
+        [
+          fake.oneOf(firstNames),
+          fake.oneOf(lastNames),
+          fake.oneOf(nameSuffixes),
+        ].join(' '),
+      () =>
+        [
+          fake.oneOf(namePrefixes),
+          fake.oneOf(firstNames),
+          fake.oneOf(lastNames),
+          fake.oneOf(nameSuffixes),
+        ].join(' '),
+    );
   };
 }
 
 export function firstName(fake: Faker.Instance): Faker.Extensions['firstName'] {
   return (gender): string => {
     if (gender === 'female') {
-      return randomValueFromArray(fake, NameDataSource.femaleFirstName());
+      return fake.oneOf(femaleFirstNames);
     }
 
     if (gender === 'male') {
-      return randomValueFromArray(fake, NameDataSource.maleFirstName());
+      return fake.oneOf(maleFirstNames);
     }
 
-    return randomValueFromArray(fake, NameDataSource.firstName());
+    return fake.oneOf(firstNames);
   };
 }
 
 export function lastName(fake: Faker.Instance): Faker.Extensions['lastName'] {
   return (): string => {
-    return randomValueFromArray(fake, NameDataSource.lastName());
+    return fake.oneOf(lastNames);
   };
 }
 
@@ -78,7 +66,7 @@ export function namePrefix(
   fake: Faker.Instance,
 ): Faker.Extensions['namePrefix'] {
   return (): string => {
-    return randomValueFromArray(fake, NameDataSource.prefix());
+    return fake.oneOf(namePrefixes);
   };
 }
 
@@ -86,6 +74,6 @@ export function nameSuffix(
   fake: Faker.Instance,
 ): Faker.Extensions['nameSuffix'] {
   return (): string => {
-    return randomValueFromArray(fake, NameDataSource.suffix());
+    return fake.oneOf(nameSuffixes);
   };
 }

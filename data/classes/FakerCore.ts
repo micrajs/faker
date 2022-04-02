@@ -69,4 +69,37 @@ export class FakerCore implements Faker.Core {
     // Workaround problem in Float point arithmetics for e.g. 6681493 / 0.01
     return randomNumber / (1 / precision);
   }
+
+  oneOf<T>(
+    firstOrAll: T | Faker.Generator<T> | (T | Faker.Generator<T>)[],
+    ...values: (T | Faker.Generator<T>)[]
+  ): T {
+    const all = Array.isArray(firstOrAll)
+      ? firstOrAll
+      : [firstOrAll, ...values];
+
+    const arg = all[this.number(all.length - 1)];
+
+    return typeof arg !== 'function'
+      ? arg
+      : (arg as Faker.Generator<T>)(this as unknown as Faker.Instance);
+  }
+
+  string(length = 10): string {
+    const maxLength = Math.pow(2, 20);
+    if (length >= maxLength) {
+      length = maxLength;
+    }
+
+    const returnString: (string | number)[] = [];
+    for (let i = 0; i < length; i++) {
+      returnString.push(String.fromCharCode(this.number(33, 125)));
+    }
+
+    return returnString.join('');
+  }
+
+  boolean(): boolean {
+    return !!this.number(1);
+  }
 }

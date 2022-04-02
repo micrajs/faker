@@ -1,20 +1,16 @@
-import {randomBoolean} from '@/data/utilities/randomBoolean';
-import {randomDigit} from '@/data/utilities/randomDigit';
-import {randomUpperCase} from '@/data/utilities/randomUpperCase';
-
 export function pattern(fake: Faker.Instance) {
   return (pattern = ''): string => {
     return pattern
       .split('')
       .map((char) => {
         if (char === '#') {
-          return randomDigit(fake);
+          return fake.number(9);
         } else if (char === '?') {
-          return randomUpperCase(fake);
+          return String.fromCharCode(fake.number(65, 90));
         } else if (char === '*') {
-          return randomBoolean(fake)
-            ? randomUpperCase(fake)
-            : randomDigit(fake);
+          return fake.boolean()
+            ? fake.number(9)
+            : String.fromCharCode(fake.number(65, 90));
         }
 
         return char;
