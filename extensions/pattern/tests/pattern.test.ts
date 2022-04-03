@@ -5,7 +5,7 @@ describe('pattern extension tests', () => {
   it('should generate patterns', () => {
     const fake = Faker();
     const testPattern = '#?*ABC';
-    fake.extend('pattern', pattern);
+    fake.extend({pattern});
 
     const result = fake.pattern(testPattern);
 

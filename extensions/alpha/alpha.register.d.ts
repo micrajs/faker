@@ -9,7 +9,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {alpha} from '@micra/faker/extensions/alpha';
        *
-       * fake.extend('alpha', alpha);
+       * fake.extend({alpha});
        * fake.alpha(); // "OgegCljhGy" string of length 10 containing only letters
        * ```
        */
@@ -22,7 +22,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {alpha} from '@micra/faker/extensions/alpha';
        *
-       * fake.extend('alpha', alpha);
+       * fake.extend({alpha});
        * fake.alpha(5); // "nJaIp" string of length 5 containing only letters
        * ```
        */

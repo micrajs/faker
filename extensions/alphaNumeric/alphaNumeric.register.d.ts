@@ -9,7 +9,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {alphaNumeric} from '@micra/faker/extensions/alphaNumeric';
        *
-       * fake.extend('alphaNumeric', alphaNumeric);
+       * fake.extend({alphaNumeric});
        * fake.alphaNumeric(); // "D798Wgy5nl" string of length 10 containing letters and numbers
        * ```
        */
@@ -22,7 +22,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {alphaNumeric} from '@micra/faker/extensions/alphaNumeric';
        *
-       * fake.extend('alphaNumeric', alphaNumeric);
+       * fake.extend({alphaNumeric});
        * fake.alphaNumeric(5); // "nad91" string of length 5 containing letters and numbers
        * ```
        */

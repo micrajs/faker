@@ -4,7 +4,7 @@ import {Faker} from '../../..';
 describe('alpha extension tests', () => {
   it('should generate alphas', () => {
     const fake = Faker();
-    fake.extend('alpha', alpha);
+    fake.extend({alpha});
     fake.string(2);
 
     expect(typeof fake.alpha()).toBe('string');

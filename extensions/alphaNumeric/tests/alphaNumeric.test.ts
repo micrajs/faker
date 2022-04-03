@@ -4,7 +4,7 @@ import {Faker} from '../../..';
 describe('alphaNumeric extension tests', () => {
   it('should generate alphaNumerics', () => {
     const fake = Faker();
-    fake.extend('alphaNumeric', alphaNumeric);
+    fake.extend({alphaNumeric});
 
     expect(typeof fake.alphaNumeric()).toBe('string');
     expect(fake.alphaNumeric()).toHaveLength(10);

@@ -4,7 +4,7 @@ import {Faker} from '../../..';
 describe('date extension tests', () => {
   it('should generate dates', () => {
     const fake = Faker();
-    fake.extend('date', date);
+    fake.extend({date});
 
     expect(fake.date()).instanceOf(Date);
     expect(fake.date(10) <= new Date(10)).toBeTruthy();
@@ -21,7 +21,7 @@ describe('date extension tests', () => {
 
   it('should generate past dates', () => {
     const fake = Faker();
-    fake.extend('pastDate', pastDate);
+    fake.extend({pastDate});
 
     expect(fake.pastDate()).instanceOf(Date);
     expect(fake.pastDate() < new Date()).toBeTruthy();
@@ -29,7 +29,7 @@ describe('date extension tests', () => {
 
   it('should generate future dates', () => {
     const fake = Faker();
-    fake.extend('futureDate', futureDate);
+    fake.extend({futureDate});
 
     expect(fake.futureDate()).instanceOf(Date);
     expect(fake.futureDate() > new Date()).toBeTruthy();
@@ -37,7 +37,7 @@ describe('date extension tests', () => {
 
   it('should generate months', () => {
     const fake = Faker();
-    fake.extend('month', month);
+    fake.extend({month});
 
     expect(typeof fake.month()).toBe('string');
     expect(fake.seed(1).month()).toBe(fake.seed(1).month());
@@ -45,7 +45,7 @@ describe('date extension tests', () => {
 
   it('should generate weekdays', () => {
     const fake = Faker();
-    fake.extend('weekday', weekday);
+    fake.extend({weekday});
 
     expect(typeof fake.weekday()).toBe('string');
     expect(fake.seed(1).weekday()).toBe(fake.seed(1).weekday());

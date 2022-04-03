@@ -15,7 +15,7 @@ declare global {
      */
     type ExtensionFactory<K extends keyof Extensions> = (
       faker: Instance,
-    ) => Extensions[K];
+    ) => Instance[K];
 
     interface Core {
       /**
@@ -201,21 +201,19 @@ declare global {
       /**
        * It extends the faker instance with the given extension. The extension will be added to the faker instance as a property on the given key.
        *
-       * @param key - Name of the extension
-       * @param factory - Function that returns the extension
+       * @param extensions - The extension to add.
        *
        * @example
        * ```ts
        * import fake from '@micra/faker';
        * import {factory} from '@micra/faker/extensions/factory';
        *
-       * fake.extend('factory', factory); // registers the factory extension
+       * fake.extend({factory}); // registers the factory extension
        * typeof fake.factory; // returns the factory function
        * ```
        */
       extend<K extends keyof Extensions>(
-        key: K,
-        factory: ExtensionFactory<K>,
+        extensions: Partial<Record<K, ExtensionFactory<K>>>,
       ): this;
     }
 

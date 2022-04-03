@@ -11,7 +11,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {factory} from '@micra/faker/extensions/factory';
        *
-       * fake.extend('factory', factory);
+       * fake.extend({factory});
        *
        * interface User {
        *  name: string;
@@ -36,7 +36,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {factory} from '@micra/faker/extensions/factory';
        *
-       * fake.extend('factory', factory);
+       * fake.extend({factory});
        *
        * interface User {
        *  name: string;
@@ -66,7 +66,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {factory} from '@micra/faker/extensions/factory';
        *
-       * fake.extend('factory', factory);
+       * fake.extend({factory});
        *
        * interface User {
        *  name: string;

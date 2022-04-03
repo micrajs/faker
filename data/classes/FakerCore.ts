@@ -19,13 +19,22 @@ export class FakerCore implements Faker.Core {
   };
 
   extend<K extends keyof Faker.Extensions>(
-    key: K,
-    extensionFactory: Faker.ExtensionFactory<K>,
+    extensions: Partial<Record<K, Faker.ExtensionFactory<K>>>,
   ): this {
-    const self = this as unknown as Faker.Extensions;
-    if (!self[key]) {
-      self[key] = extensionFactory(self as Faker.Instance);
-    }
+    const self = this as unknown as Faker.Instance;
+    Object.entries(extensions).forEach(([key, extension]) => {
+      if (!self[key as K]) {
+        self[key as K] = (extension as Faker.ExtensionFactory<K>)(
+          this as unknown as Faker.Instance,
+        );
+      } else {
+        if (process.env.NODE_ENV !== 'production') {
+          console.warn(
+            `[Faker] Extension "${key}" already exists and will not be overwritten.`,
+          );
+        }
+      }
+    });
 
     return this;
   }

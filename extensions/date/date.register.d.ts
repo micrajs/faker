@@ -9,7 +9,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {date} from '@micra/faker/extensions/date';
        *
-       * fake.extend('date', date);
+       * fake.extend({date});
        * fake.date(); // "2563-09-24T11:43:02.784Z"
        * ```
        */
@@ -24,7 +24,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {date} from '@micra/faker/extensions/date';
        *
-       * fake.extend('date', date);
+       * fake.extend({date});
        * fake.date(new Date('2022-02-02')); // Date("2020-03-16T15:38:59.735Z") => Date between 1970-01-01 and 2022-02-02
        * ```
        */
@@ -40,7 +40,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {date} from '@micra/faker/extensions/date';
        *
-       * fake.extend('date', date);
+       * fake.extend({date});
        * fake.date(new Date('2022-02-02'), new Date('2023-02-02')); // Date("2023-01-28T06:54:47.670Z") => Date between 2022-02-02 and 2023-02-02
        * ```
        */
@@ -55,7 +55,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {futureDate} from '@micra/faker/extensions/date';
        *
-       * fake.extend('futureDate', futureDate);
+       * fake.extend({futureDate});
        * fake.futureDate(); // "2522-02-02T11:43:02.784Z"
        * ```
        */
@@ -69,7 +69,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {pastDate} from '@micra/faker/extensions/date';
        *
-       * fake.extend('pastDate', pastDate);
+       * fake.extend({futureDate});
        * fake.pastDate(); // "1984-05-06T12:44:02.854Z"
        * ```
        */
@@ -83,7 +83,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {month} from '@micra/faker/extensions/date';
        *
-       * fake.extend('month', month);
+       * fake.extend({month});
        * fake.month(); // "January"
        * ```
        */
@@ -97,7 +97,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {weekday} from '@micra/faker/extensions/date';
        *
-       * fake.extend('weekday', weekday);
+       * fake.extend({weekday});
        * fake.weekday(); // "Tuesday"
        * ```
        */

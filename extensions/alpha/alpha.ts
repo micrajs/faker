@@ -11,7 +11,7 @@ import {randomUpperCase} from '@/data/utilities/randomUpperCase';
  * import fake from '@micra/faker';
  * import {alpha} from '@micra/faker/extensions/date';
  *
- * fake.extend('alpha', alpha);
+ * fake.extend({alpha});
  * ```
  */
 export function alpha(fake: Faker.Instance) {

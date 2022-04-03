@@ -14,7 +14,7 @@ const MAX_MS = 32503593600000;
  * import fake from '@micra/faker';
  * import {date} from '@micra/faker/extensions/date';
  *
- * fake.extend('date', date);
+ * fake.extend({date});
  * ```
  */
 export function date(fake: Faker.Instance) {
@@ -50,7 +50,7 @@ export function date(fake: Faker.Instance) {
  * import fake from '@micra/faker';
  * import {futureDate} from '@micra/faker/extensions/date';
  *
- * fake.extend('futureDate', futureDate);
+ * fake.extend({futureDate});
  * ```
  */
 export function futureDate(fake: Faker.Instance) {
@@ -69,7 +69,7 @@ export function futureDate(fake: Faker.Instance) {
  * import fake from '@micra/faker';
  * import {pastDate} from '@micra/faker/extensions/date';
  *
- * fake.extend('pastDate', pastDate);
+ * fake.extend({pastDate});
  * ```
  */
 export function pastDate(fake: Faker.Instance) {
@@ -88,7 +88,7 @@ export function pastDate(fake: Faker.Instance) {
  * import fake from '@micra/faker';
  * import {month} from '@micra/faker/extensions/date';
  *
- * fake.extend('month', month);
+ * fake.extend({month});
  * ```
  */
 export function month(fake: Faker.Instance) {
@@ -107,7 +107,7 @@ export function month(fake: Faker.Instance) {
  * import fake from '@micra/faker';
  * import {weekday} from '@micra/faker/extensions/date';
  *
- * fake.extend('weekday', weekday);
+ * fake.extend({weekday});
  * ```
  */
 export function weekday(fake: Faker.Instance) {

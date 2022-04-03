@@ -4,7 +4,7 @@ import {Faker} from '../../..';
 describe('hexadecimal extension tests', () => {
   it('should generate hexadecimals', () => {
     const fake = Faker();
-    fake.extend('hexadecimal', hexadecimal);
+    fake.extend({hexadecimal});
 
     expect(typeof fake.hexadecimal()).toBe('string');
     expect(fake.hexadecimal().startsWith('0x')).toBe(true);

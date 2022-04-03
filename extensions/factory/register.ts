@@ -1,6 +1,6 @@
 import {factory} from './factory';
 import faker from '../..';
 
-faker.extend('factory', factory);
+faker.extend({factory});
 
 export default faker;

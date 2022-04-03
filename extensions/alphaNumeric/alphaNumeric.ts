@@ -12,7 +12,7 @@ import {randomUpperCase} from '@/data/utilities/randomUpperCase';
  * import fake from '@micra/faker';
  * import {alphaNumeric} from '@micra/faker/extensions/date';
  *
- * fake.extend('alphaNumeric', alphaNumeric);
+ * fake.extend({alphaNumeric});
  * ```
  */
 export function alphaNumeric(fake: Faker.Instance) {

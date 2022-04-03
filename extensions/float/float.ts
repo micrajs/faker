@@ -8,7 +8,7 @@
  * import fake from '@micra/faker';
  * import {float} from '@micra/faker/extensions/float';
  *
- * fake.extend('float', float);
+ * fake.extend({float});
  * ```
  */
 export function float(fake: Faker.Instance) {

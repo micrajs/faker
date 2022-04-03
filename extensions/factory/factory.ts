@@ -11,7 +11,7 @@ import {isFactoryDefinition} from './utilities/isFactoryDefinition';
  * import fake from '@micra/faker';
  * import {factory} from '@micra/faker/extensions/date';
  *
- * fake.extend('factory', factory);
+ * fake.extend({factory});
  * ```
  */
 export function factory(fake: Faker.Instance): Faker.Extensions['factory'] {

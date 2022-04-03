@@ -4,7 +4,7 @@ import {Faker} from '../../..';
 describe('name extension tests', () => {
   it('should generate names', () => {
     const fake = Faker();
-    fake.extend('name', name);
+    fake.extend({name});
 
     expect(typeof fake.name()).toBe('string');
     expect(fake.name()).not.toBe(fake.name());
@@ -14,7 +14,7 @@ describe('name extension tests', () => {
 
   it('should generate first names', () => {
     const fake = Faker();
-    fake.extend('firstName', firstName);
+    fake.extend({firstName});
 
     expect(typeof fake.firstName()).toBe('string');
     expect(fake.firstName()).not.toBe(fake.firstName());
@@ -26,7 +26,7 @@ describe('name extension tests', () => {
 
   it('should generate last names', () => {
     const fake = Faker();
-    fake.extend('lastName', lastName);
+    fake.extend({lastName});
 
     expect(typeof fake.lastName()).toBe('string');
     expect(fake.lastName()).not.toBe(fake.lastName());
@@ -36,7 +36,7 @@ describe('name extension tests', () => {
 
   it('should generate name prefixes', () => {
     const fake = Faker();
-    fake.extend('namePrefix', namePrefix);
+    fake.extend({namePrefix});
 
     expect(typeof fake.namePrefix()).toBe('string');
     expect(fake.seed(1).namePrefix()).toBe(fake.seed(1).namePrefix());
@@ -44,7 +44,7 @@ describe('name extension tests', () => {
 
   it('should generate name suffixes', () => {
     const fake = Faker();
-    fake.extend('nameSuffix', nameSuffix);
+    fake.extend({nameSuffix});
 
     expect(typeof fake.nameSuffix()).toBe('string');
     expect(fake.seed(1).nameSuffix()).toBe(fake.seed(1).nameSuffix());

@@ -1,6 +1,6 @@
 import {alphaNumeric} from './alphaNumeric';
-import faker from '../..';
+import fake from '../..';
 
-faker.extend('alphaNumeric', alphaNumeric);
+fake.extend({alphaNumeric});
 
-export default faker;
+export default fake;

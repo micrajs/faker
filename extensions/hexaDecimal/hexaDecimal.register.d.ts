@@ -9,7 +9,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {hexadecimal} from '@micra/faker/extensions/hexadecimal';
        *
-       * fake.extend('hexadecimal', hexadecimal);
+       * fake.extend({hexadecimal});
        * fake.hexadecimal(); // string between 0x0 and 0xF
        * ```
        */
@@ -24,7 +24,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {hexadecimal} from '@micra/faker/extensions/hexadecimal';
        *
-       * fake.extend('hexadecimal', hexadecimal);
+       * fake.extend({hexadecimal});
        * fake.hexadecimal(2); // "0x0F"
        * ```
        */

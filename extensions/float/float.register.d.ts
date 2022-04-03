@@ -22,7 +22,7 @@ declare global {
        * import fake from '@micra/faker';
        * import {float} from '@micra/faker/extensions/float';
        *
-       * fake.extend('float', float);
+       * fake.extend({float});
        * fake.float(9); // number between 0 and 9
        * ```
        */

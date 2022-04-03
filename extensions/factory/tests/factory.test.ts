@@ -18,7 +18,7 @@ describe('factory extension tests', () => {
 
   beforeEach(() => {
     faker = Faker();
-    faker.extend('factory', factory);
+    faker.extend({factory});
   });
 
   describe('make tests', () => {

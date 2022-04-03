@@ -8,7 +8,7 @@
  * import fake from '@micra/faker';
  * import {hexadecimal} from '@micra/faker/extensions/hexadecimal';
  *
- * fake.extend('hexadecimal', hexadecimal);
+ * fake.extend({hexadecimal});
  * ```
  */
 export function hexadecimal(fake: Faker.Instance) {
