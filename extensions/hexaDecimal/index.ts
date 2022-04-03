@@ -1,1 +1,1 @@
-export * from './hexaDecimal';
+export * from './hexadecimal';

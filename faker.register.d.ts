@@ -20,12 +20,26 @@ declare global {
     interface Core {
       /**
        * It generates a random integer between 0 and 99999 value.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * fake.number(); // number between 0 and 99999
+       * ```
        */
       number(): number;
       /**
        * It generates a random integer between 0 and a given `max` value.
        *
        * @param max - The maximum value.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * fake.number(9); // number between 0 and 9
+       * ```
        */
       number(max: number): number;
       /**
@@ -33,6 +47,13 @@ declare global {
        *
        * @param min - The minimum value. Defaults to `0`.
        * @param max - The maximum value. Default: `99999`.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * fake.number(2, 10); // number between 2 and 10
+       * ```
        */
       number(min: number, max: number): number;
       /**
@@ -41,6 +62,13 @@ declare global {
        * @param min - The minimum value. Defaults to `0`.
        * @param max - The maximum value. Defaults to `99999`.
        * @param precision - Precision of the generated number. Defaults to `1`.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * fake.number(2, 10, 0.1); // number between 2.0 and 10.0 with precision 0.1
+       * ```
        */
       number(min: number, max: number, precision: number): number;
       /**
@@ -52,25 +80,121 @@ declare global {
        */
       number(maxOrMin?: number, max?: number, precision?: number): number;
 
-      string: (length?: number) => string;
+      /**
+       * It generates a random string of length 10. It includes lowercase letters, uppercase letters, numbers and symbols.
+       *
+       * @param length - The length of the string. Defaults to `10`.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * fake.string(); // "=:ZV2aOcp{" => string of length 10
+       * ```
+       */
+      string(): string;
+      /**
+       * It generates a random string of a given length. It includes lowercase letters, uppercase letters, numbers and symbols.
+       *
+       * @param length - The length of the string. Defaults to `10`.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * fake.string(5); // "a(zEL" => string of length 5
+       * ```
+       */
+      string(length: number): string;
+      /**
+       * It generates a random string of a given length. It includes lowercase letters, uppercase letters, numbers and symbols.
+       *
+       * @param length - The length of the string. Defaults to `10`.
+       */
+      string(length?: number): string;
 
+      /**
+       * It picks a random element from a list of elements. If the first argument is an array,
+       * it will be used as the list of elements. If the first argument is a value or a function,
+       * the list of arguments will be used as the list.
+       *
+       * @param firstOrAll - A value T, a generator of T or an array of T.
+       * @param ...values - The values to be used.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * fake.oneOf(['a', 'b', 'c']); // 'a', 'b', or 'c'
+       * ```
+       */
+      oneOf<T>(options: (T | Generator<T>)[]): T;
+      /**
+       * It picks a random element from a list of elements. If the first argument is an array,
+       * it will be used as the list of elements. If the first argument is a value or a function,
+       * the list of arguments will be used as the list.
+       *
+       * @param firstOrAll - A value T, a generator of T or an array of T.
+       * @param ...values - The values to be used.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * fake.oneOf('a', 'b', 'c');   // 'a', 'b', or 'c'
+       * fake.oneOf((fake) => fake.number(2,10), (fake) => fake.number(20,100)); // number between 2-10 or 20-100
+       * ```
+       */
+      oneOf<T>(...options: (T | Generator<T>)[]): T;
+      /**
+       * It picks a random element from a list of elements. If the first argument is an array,
+       * it will be used as the list of elements. If the first argument is a value or a function,
+       * the list of arguments will be used as the list.
+       *
+       * @param firstOrAll - A value T, a generator of T or an array of T.
+       * @param ...values - The values to be used.
+       */
       oneOf<T>(
         firstOrAll: T | Generator<T> | (T | Generator<T>)[],
         ...values: (T | Generator<T>)[]
       ): T;
 
+      /**
+       * It generates a random boolean value.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * fake.boolean(); // true or false
+       * ```
+       */
       boolean(): boolean;
 
       /**
        * It sets the seed used to generate random numbers. Given a seed, it will always return the same sequence of numbers.
        *
        * @param value - The seed value to use.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * expect(fake.seed(1).number()).toBe(fake.seed(1).number()); // always returns the same sequence of numbers
+       * ```
        */
 
       seed(value: number): this;
 
       /**
        * It unsets the seed used to generate random numbers.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       *
+       * expect(fake.seed(1).unseed().number()).not.toBe(fake.seed(1).number()); // it removes the seed
+       * ```
        */
       unseed(): this;
 
@@ -79,6 +203,15 @@ declare global {
        *
        * @param key - Name of the extension
        * @param factory - Function that returns the extension
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       * import {factory} from '@micra/faker/extensions/factory';
+       *
+       * fake.extend('factory', factory); // registers the factory extension
+       * typeof fake.factory; // returns the factory function
+       * ```
        */
       extend<K extends keyof Extensions>(
         key: K,

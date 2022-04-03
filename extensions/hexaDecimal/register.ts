@@ -1,6 +1,6 @@
-import {hexaDecimal} from './hexaDecimal';
+import {hexadecimal} from './hexadecimal';
 import faker from '../..';
 
-faker.extend('hexaDecimal', hexaDecimal);
+faker.extend('hexadecimal', hexadecimal);
 
 export default faker;

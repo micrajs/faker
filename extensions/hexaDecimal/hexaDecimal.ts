@@ -1,4 +1,17 @@
-export function hexaDecimal(fake: Faker.Instance) {
+/**
+ * It register the hexadecimal extension to the Faker instance.
+ *
+ * @param fake Faker instance
+ *
+ * @example
+ * ```ts
+ * import fake from '@micra/faker';
+ * import {hexadecimal} from '@micra/faker/extensions/hexadecimal';
+ *
+ * fake.extend('hexadecimal', hexadecimal);
+ * ```
+ */
+export function hexadecimal(fake: Faker.Instance) {
   return (length = 1): string => {
     const parts: (string | number)[] = ['0x'];
 

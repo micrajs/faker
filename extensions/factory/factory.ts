@@ -1,6 +1,19 @@
 import {Factory} from './classes/Factory';
 import {isFactoryDefinition} from './utilities/isFactoryDefinition';
 
+/**
+ * It register the factory extension to the Faker instance.
+ *
+ * @param fake Faker instance
+ *
+ * @example
+ * ```ts
+ * import fake from '@micra/faker';
+ * import {factory} from '@micra/faker/extensions/date';
+ *
+ * fake.extend('factory', factory);
+ * ```
+ */
 export function factory(fake: Faker.Instance): Faker.Extensions['factory'] {
   return <T, V extends string | undefined = string>(
     definition: Faker.Generator<T> | Faker.FactoryDefinition<T, V>,

@@ -5,6 +5,24 @@ declare global {
        * It creates a new factory that can be used to generate random values of the specified type.
        *
        * @param generator - The generator function that will be used to generate the object.
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       * import {factory} from '@micra/faker/extensions/factory';
+       *
+       * fake.extend('factory', factory);
+       *
+       * interface User {
+       *  name: string;
+       *  age: number;
+       * }
+       *
+       * const factory = fake.factory<User>((fake) => ({
+       *  name: fake.string(),
+       *  age: fake.number(),
+       * }));
+       * ```
        */
       factory<T>(generator: Generator<T>): Factory<T>;
       /**
@@ -12,6 +30,29 @@ declare global {
        *
        * @param definition - The options of a given factory, excluding variants.
        * @link Faker.PartialFactoryDefinition
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       * import {factory} from '@micra/faker/extensions/factory';
+       *
+       * fake.extend('factory', factory);
+       *
+       * interface User {
+       *  name: string;
+       *  age: number;
+       * }
+       *
+       * const factory = fake.factory<User>({
+       *  factory: (fake) => ({
+       *   name: fake.string(),
+       *   age: fake.number(),
+       *  })
+       *  onPersist: async (user) => {
+       *    // do something with the user
+       *  },
+       * });
+       * ```
        */
       factory<T>(definition: PartialFactoryDefinition<T>): Factory<T>;
       /**
@@ -19,6 +60,31 @@ declare global {
        *
        * @param definition - The options of a given factory, including variants.
        * @see Faker.FullFactoryDefinition
+       *
+       * @example
+       * ```ts
+       * import fake from '@micra/faker';
+       * import {factory} from '@micra/faker/extensions/factory';
+       *
+       * fake.extend('factory', factory);
+       *
+       * interface User {
+       *  name: string;
+       *  age: number;
+       * }
+       *
+       * type UserFactoryVariants = 'john';
+       *
+       * const factory = fake.factory<User, UserFactoryVariants>({
+       *  factory: (fake) => ({
+       *   name: fake.string(),
+       *   age: fake.number(),
+       *  })
+       *  variants: {
+       *   john: () => ({name: 'John'}),
+       *  },
+       * });
+       * ```
        */
       factory<T, V extends string>(
         definition: FullFactoryDefinition<T, V>,
