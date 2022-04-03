@@ -16,6 +16,7 @@ describe('pattern extension tests', () => {
     expect(['string', 'number'].includes(typeof result.at(2))).toBe(true);
     expect(result.substring(3)).toBe('ABC');
 
+    expect(fake.pattern('\\#\\?\\*escaped')).toBe('#?*escaped');
     expect(fake.pattern(testPattern)).not.toBe(fake.pattern(testPattern));
     expect(fake.seed(1).pattern(testPattern)).toBe(
       fake.seed(1).pattern(testPattern),
