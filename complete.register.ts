@@ -1,0 +1,10 @@
+import '@/faker.register';
+import '@/extensions/alpha/alpha.register';
+import '@/extensions/alphaNumeric/alphaNumeric.register';
+import '@/extensions/date/date.register';
+import '@/extensions/factory/factory.register';
+import '@/extensions/float/float.register';
+import '@/extensions/hexadecimal/hexadecimal.register';
+import '@/extensions/name/name.register';
+import '@/extensions/pattern/pattern.register';
+import '@/extensions/uuid/uuid.register';

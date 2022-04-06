@@ -1,3 +1,5 @@
+import '@/complete.register';
+
 import faker from '@/index';
 import '@/extensions/alpha/register';
 import '@/extensions/alphaNumeric/register';

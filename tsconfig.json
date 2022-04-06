@@ -3,6 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
+    "removeComments": false,
     "types": ["vitest/globals"],
     "baseUrl": ".",
     "paths": {

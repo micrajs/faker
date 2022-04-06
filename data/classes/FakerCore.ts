@@ -1,4 +1,3 @@
-/// <reference types="../../faker.register" />
 import {Mersenne} from '../utilities/mersenne';
 
 interface Internal {
