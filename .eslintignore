@@ -3,4 +3,3 @@ node_modules
 .*.js
 coverage
 *.d.ts
-!*.register.d.ts

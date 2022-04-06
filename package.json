@@ -1,6 +1,6 @@
 {
   "name": "@micra/faker",
-  "version": "0.1.0-next.0",
+  "version": "0.1.0-next.1",
   "description": "Generate realistic fake data for your tests",
   "repository": {
     "type": "git",
